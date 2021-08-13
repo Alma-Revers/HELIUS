@@ -1,4 +1,4 @@
-# Tutorial on fitting the model presented in the paper: ""
+# Tutorial on fitting the model presented in the paper: A Bayesian negative binomial hierarchical model for identifying diet - gut microbiome associations
 
 ## Before beginning:
 Download all three files.
