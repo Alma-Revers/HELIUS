@@ -52,7 +52,7 @@ OTUs_to_include_based_on_family <- data@tax_table[,5] %in% names(families_to_inc
 table(OTUs_to_include_based_on_family)
 
 #Format data to expected input for stan
-x <- 2
+x <- 1
 stan_data <- list(
   N_subj = length(unlist(data@sam_data[,x])),
   N_otu = dim(data@otu_table[OTU_above_threshold&OTUs_to_include_based_on_family,])[1],
@@ -87,7 +87,7 @@ hist(beta$ess[seq(2, length(beta$rhat), by=2)])
 
 #####################################CPlot results##############################################
 volcano_plot_data <- data.frame(x = beta$estimate[seq(2, length(beta$estimate), by=2)],
-                                y = beta$estimate[seq(2, length(beta$estimate), by=2)]/(beta$std.error[seq(2, length(beta$estimate), by=2)]^2),
+                                y = 1/(beta$std.error[seq(2, length(beta$estimate), by=2)]^2),
                               family = as.factor(data@tax_table[OTU_above_threshold&OTUs_to_include_based_on_family,5])
 )
 ggplot(volcano_plot_data, aes(x = x, y=abs(y), color=family)) +
