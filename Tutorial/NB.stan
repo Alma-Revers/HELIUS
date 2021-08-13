@@ -35,7 +35,6 @@ transformed parameters {
  
   for ( j in 1:N_otu){
     mu[,j] = (x * beta_otu[,j]) + offset;
-    #mu[,j] = (x * beta_otu[,j]);
     mu_phi[j] = a1/mean(exp(mu[,j])) + alpha_0;
   }
 }
